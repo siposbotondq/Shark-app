@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:shark="clr-namespace:Shark" x:DataType="shark:MainPageTimer"
+             xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             BackgroundColor="LightSkyBlue"
+             x:Class="Shark.MainPage">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20">
+
+        <Frame BorderColor="White" Padding="50,50,50,50" CornerRadius="25" BackgroundColor="CornflowerBlue" Margin="20">
+            <StackLayout >
+                <Label HorizontalTextAlignment="Center" FontSize="20" Text="Ido" TextColor="White"/>
+                <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Grid.Column="1" FontSize="28">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding StopWatchHours}" TextColor="White"/>
+                            <Span Text=":" TextColor="White"/>
+                            <Span Text="{Binding StopWatchMinutes}" TextColor="White"/>
+                            <Span Text=":" TextColor="White"/>
+                            <Span Text="{Binding StopWatchSeconds}" TextColor="White"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </Frame>
+
+        <gauge:SfCircularGauge>
+            <gauge:SfCircularGauge.Scales>
+                <gauge:Scale StartValue="0" EndValue="60">
+                    <gauge:Scale.Pointers>
+                        <gauge:NeedlePointer  Value="37" Color="White"/>
+                    </gauge:Scale.Pointers>
+                    <gauge:Scale.Ranges>
+                        <gauge:Range StartValue = "0" EndValue = "60" Thickness = "20" Offset = "0.6">
+                            <gauge:Range.GradientStops>
+                                <gauge:GaugeGradientStop Value="0" Color="#FFDD00"/>
+                                <gauge:GaugeGradientStop Value="30" Color="#30B32D"/>
+                                <gauge:GaugeGradientStop Value="60" Color="#F03E3E"/>
+                            </gauge:Range.GradientStops>
+                        </gauge:Range>
+                    </gauge:Scale.Ranges>
+                    <gauge:Scale.MinorTickSettings>
+                        <gauge:TickSettings Color ="white" Thickness="2" Length="4" Offset = "0.97" />
+                    </gauge:Scale.MinorTickSettings>
+                </gauge:Scale>
+            </gauge:SfCircularGauge.Scales>
+            <gauge:SfCircularGauge.Headers>
+                <gauge:Header Text="km/h" TextSize="12" ForegroundColor="LightSkyBlue" />
+            </gauge:SfCircularGauge.Headers>
+        </gauge:SfCircularGauge>
+
+        <Button Text="Start" TextColor="White" BackgroundColor="CornflowerBlue" Margin="5"
+            CornerRadius="5" WidthRequest="100" HeightRequest="50" 
+            VerticalOptions="Center" HorizontalOptions="Center"
+            Clicked="Button_ClickedStart">
+        </Button>
+
+        <Button Text="Reset" TextColor="White" BackgroundColor="CornflowerBlue" Margin="5"
+            CornerRadius="5" WidthRequest="100" HeightRequest="50" 
+            VerticalOptions="Center" HorizontalOptions="Center"
+            Clicked="Button_ClickedReset">
+        </Button>
+        
+        <Button Text="Stop" TextColor="White" BackgroundColor="CornflowerBlue" Margin="5"
+            CornerRadius="5" WidthRequest="100" HeightRequest="50" 
+            VerticalOptions="Center" HorizontalOptions="Center"
+            Clicked="Button_ClickedStop">
+        </Button>
+
+
+
+
+    </StackLayout>
+    
+   
+</ContentPage>
+<!--
+    
+    -->
